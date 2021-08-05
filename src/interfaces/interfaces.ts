@@ -7,6 +7,7 @@ export interface Icredencial{
 export interface Irol{
     id_rol:number;
     descripcion_rol:String;
+    usuarios:IUsuario[];
 }
 
 export interface IUsuario{
@@ -24,7 +25,7 @@ export interface IUsuario{
 }
 
 export interface Ifuncionario{
-    id_funcionario:number;
+    contratos:IContrato[];
 }
 
 export interface IEncarngado_bodega{
@@ -39,7 +40,17 @@ export interface Iproducto{
 }
 
 export interface ICliente{
-    id_cliente:number;
+    apellido:String;
+    correo:String;
+    direccion:String;
+    fecha_nacimiento:String;
+    id:number;
+    nombre:String;
+    password:String;
+    rut:String;
+    telefono:number;
+    username:String;
+    contratos: IContrato[];
 }
 
 export interface ISupervisor{
@@ -49,21 +60,20 @@ export interface ISupervisor{
 export interface Iplan{
     zona:String;
     descripcion:String;
-    id_plan:number;
-    tipo_servicio:String;
+    id:number;
+    tipoServicio:String;
     precio:number;
 }
 
 export interface IContrato{
-    fecha_vencimiento:String;
-    id_contrato:number;
     direccion:String;
-    estado:String;
-    precio:number;
-}
-
-export interface IContrato{
-    id_facturacion:number
+    cliente: ICliente;
+    estadoPago:String;
+    fecha:String;
+    fechaVencimiento:String;
+    id:number;
+    planes:Iplan[];
+    ultimaFechaPagado:String;
 }
 
 export interface Iorden_trabajo{
